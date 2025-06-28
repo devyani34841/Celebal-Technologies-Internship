@@ -1,0 +1,198 @@
+Docker Fundamentals and Containerization - Internship Task Documentation
+This repository contains the documentation for the "Introduction to Containerization and Docker Fundamentals" task completed during my DevOps internship. It covers core concepts, fundamental Docker commands, and a detailed record of the learning outcomes and challenges encountered.
+
+Table of Contents
+Introduction to Containerization
+
+What is Containerization?
+
+Benefits of Containerization
+
+Containers vs. Virtual Machines (VMs)
+
+Docker Fundamentals
+
+Key Docker Concepts
+
+Docker Architecture
+
+Basic Docker Commands
+
+Task Documentation
+
+Task Overview
+
+Key Concepts Covered
+
+Commands Executed and Their Outcomes
+
+Learning Outcomes and Key Takeaways
+
+Challenges Encountered & Solutions
+
+Next Steps and Further Exploration
+
+1. Introduction to Containerization
+1.1 What is Containerization?
+Containerization is a lightweight form of operating-system-level virtualization that packages an application and all its necessary components—including code, runtime, libraries, system tools, and configuration files—into a self-contained, isolated unit called a container. This unit is designed to run consistently and reliably across various computing environments, from a developer's local machine to on-premises servers, virtual machines, or cloud platforms.
+
+1.2 Benefits of Containerization
+Containerization addresses the common "it works on my machine" dilemma by ensuring environmental consistency. Its primary advantages include:
+
+Portability: Containers encapsulate all dependencies, enabling applications to be built once and run uniformly across any compatible environment.
+
+Consistency: Guarantees that applications behave identically across development, testing, staging, and production environments.
+
+Isolation: Each container operates in an isolated environment, preventing conflicts between applications or their dependencies. The failure of one container does not impact others.
+
+Efficiency: Containers share the host operating system's kernel, making them significantly lighter and faster to provision and start than traditional Virtual Machines (VMs), leading to optimized resource utilization.
+
+Scalability: Containers can be rapidly scaled up or down to meet fluctuating demand, particularly when managed by orchestration platforms like Kubernetes.
+
+Faster Deployment: The standardized and isolated nature of containers streamlines Continuous Integration/Continuous Delivery (CI/CD) pipelines, facilitating quicker and more reliable software deployments.
+
+1.3 Containers vs. Virtual Machines (VMs)
+Feature
+
+Container
+
+Virtual Machine (VM)
+
+Isolation Level
+
+Process-level isolation
+
+Full OS-level isolation
+
+OS Usage
+
+Shares the host OS kernel
+
+Each VM includes its own full guest OS
+
+Size
+
+Lightweight (Megabytes)
+
+Heavyweight (Gigabytes)
+
+Startup Time
+
+Seconds
+
+Minutes
+
+Resource Utilization
+
+Highly efficient
+
+Less efficient (due to multiple OS overhead)
+
+Portability
+
+High
+
+Moderate
+
+Typical Use Cases
+
+Microservices, rapid application deployment, CI/CD pipelines
+
+Legacy applications, diverse OS requirements, hardware emulation
+
+2. Docker Fundamentals
+Docker is the leading open-source platform designed to facilitate the development, shipment, and execution of applications within containers. It provides a comprehensive set of tools for managing the entire container lifecycle.
+
+2.1 Key Docker Concepts
+Dockerfile: A plain text file that contains a sequence of instructions (commands) for building a Docker image. It acts as a reproducible script for creating container environments.
+
+Docker Image: A read-only, immutable template that contains a complete, executable package of software. It includes the application code, a runtime, system libraries, environment variables, and configuration files required for the application to run. Images are built from Dockerfiles.
+
+Docker Container: A runnable instance of a Docker image. When an image is executed, it becomes a container, providing an isolated, portable environment where the application runs. Containers can be started, stopped, paused, and removed.
+
+Docker Registry (e.g., Docker Hub): A centralized repository service where Docker images can be stored, managed, and shared publicly or privately. Docker Hub is the default public registry, hosting numerous official and community-contributed images.
+
+Docker Daemon (dockerd): A persistent background process that runs on the host system. It listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes.
+
+Docker Client (docker CLI): The command-line interface (CLI) that users interact with to send commands to the Docker Daemon, initiating container operations.
+
+2.2 Docker Architecture
+Docker operates on a client-server architecture. The Docker client communicates with the Docker daemon, which is responsible for executing the commands and managing Docker objects.
+
++------------------+       +-------------------+       +--------------------+
+| Docker Client    | <---> | Docker Daemon     | <---> | Docker Registries  |
+| (CLI/API)        |       | (dockerd)         |       | (e.g., Docker Hub) |
++------------------+       +-------------------+       +--------------------+
+                              |
+                              v
+                       +-------------------+
+                       | Docker Objects    |
+                       | (Images, Containers,|
+                       | Networks, Volumes)  |
+                       +-------------------+
+
+3. Basic Docker Commands
+This section lists fundamental Docker commands essential for managing images and containers.
+
+docker --version: Displays the installed Docker client and engine version.
+
+docker info: Provides detailed system-wide information about Docker, including statistics on containers, images, and other Docker configurations.
+
+docker pull <image_name>[:<tag>]: Downloads a Docker image from a specified registry (defaults to Docker Hub). If no <tag> is provided, latest is assumed.
+
+Example: docker pull ubuntu:22.04
+
+docker images: Lists all Docker images stored locally on your system.
+
+docker rmi <image_id_or_name>[:<tag>]: Removes one or more Docker images from local storage. The -f or --force option can be used to override warnings about in-use images.
+
+Example: docker rmi my-app-image:1.0
+
+docker run [OPTIONS] <image_name>[:<tag>] [COMMAND] [ARG...]: Creates and starts a new container from a specified Docker image. Key options include:
+
+-d (detached mode): Runs the container in the background.
+
+-p <host_port>:<container_port>: Maps a port from the host machine to a port inside the container.
+
+--name <container_name>: Assigns a custom, human-readable name to the container.
+
+-it (interactive TTY): Allocates a pseudo-TTY and keeps STDIN open, allowing for interactive sessions (e.g., shell access).
+
+Example (run Nginx in detached mode, port mapping): docker run -d -p 8080:80 --name my-webserver nginx
+
+Example (run interactive Ubuntu shell): docker run -it ubuntu bash
+
+docker ps: Lists all currently running Docker containers.
+
+docker ps -a: Lists all Docker containers, including those that have stopped.
+
+docker stop <container_id_or_name>: Gracefully stops one or more running containers.
+
+Example: docker stop my-webserver
+
+docker start <container_id_or_name>: Starts one or more stopped containers.
+
+Example: docker start my-webserver
+
+docker restart <container_id_or_name>: Restarts one or more containers.
+
+docker rm <container_id_or_name>: Removes one or more stopped containers. Use -f for forced removal of running containers.
+
+Example: docker rm my-webserver
+
+docker exec [OPTIONS] <container_id_or_name> <command>: Executes a command inside a running container. Often used with -it for interactive sessions.
+
+Example: docker exec -it my-webserver bash
+
+docker logs <container_id_or_name>: Retrieves and displays the logs generated by a container. Use -f to follow logs in real-time.
+
+Example: docker logs -f my-webserver
+
+docker inspect <object_id_or_name>: Returns low-level information on Docker objects (containers, images, networks, volumes).
+
+Example: docker inspect my-webserver
+
+docker build -t <image_name>[:<tag>] <path_to_dockerfile>: Builds a new Docker image from a Dockerfile. The . typically refers to the current directory containing the Dockerfile.
+
+Example: docker build -t my-python-app:v1.0 .
+
