@@ -26,7 +26,8 @@ Faster Deployment: The standardized and isolated nature of containers streamline
 facilitating quicker and more reliable software deployments.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-Docker Fundamentals
+Docker Fundamentals:
+
 Docker is the leading open-source platform designed to facilitate the development, shipment, and execution of applications within containers. It provides a 
 comprehensive suite of tools for managing the entire container lifecycle.
 
@@ -48,6 +49,7 @@ objects, such as images, containers, networks, and volumes.
 
 Docker Client (docker CLI): The command-line interface (CLI) that users interact with to send commands to the Docker Daemon, initiating container operations 
 (e.g., building images, running containers).
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Basic Docker Commands
