@@ -139,7 +139,6 @@ Application Access:
 A web browser was used to navigate to http://localhost:5000. The "Hello, World from a Dockerized Flask App!" message was displayed (or "Hello, [Your Name]" if the NAME environment variable was set during 
 container execution).
 
-====================================================================================================================================================================================================================
 
 
 
