@@ -1,15 +1,17 @@
 
 Task1:Introduction to containerization and Docker fundamentals, Basic Commands
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 Introduction to Containerization
 What is Containerization?
+
 Containerization is a lightweight form of operating-system-level virtualization. It involves packaging an application and all its necessary components—
 including code, runtime, libraries, system tools, and configuration files—into a self-contained, isolated unit known as a container. This container is 
 engineered to ensure consistent and reliable execution across diverse computing environments, from a developer's workstation to on-premises servers, 
 virtual machines, or cloud platforms.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
- Benefits of Containerization
+Benefits of Containerization:
+
 Containerization is a cornerstone of modern DevOps, primarily addressing the "it works on my machine" problem by guaranteeing environmental consistency. 
 Its core advantages include:
 Portability: Containers encapsulate all dependencies, enabling applications to be built once and deployed uniformly across any compatible environment.
@@ -24,7 +26,7 @@ Faster Deployment: The standardized and isolated nature of containers streamline
 facilitating quicker and more reliable software deployments.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-2. Docker Fundamentals
+Docker Fundamentals
 Docker is the leading open-source platform designed to facilitate the development, shipment, and execution of applications within containers. It provides a 
 comprehensive suite of tools for managing the entire container lifecycle.
 
@@ -46,25 +48,9 @@ objects, such as images, containers, networks, and volumes.
 
 Docker Client (docker CLI): The command-line interface (CLI) that users interact with to send commands to the Docker Daemon, initiating container operations 
 (e.g., building images, running containers).
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Docker Architecture
-Docker operates on a client-server architecture. The Docker client communicates with the Docker daemon, which is responsible for executing the commands and
-managing all Docker objects.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-+------------------+       +-------------------+       +--------------------+
-| Docker Client    | <---> | Docker Daemon     | <---> | Docker Registries  |
-| (CLI/API)        |       | (dockerd)         |       | (e.g., Docker Hub) |
-+------------------+       +-------------------+       +--------------------+
-                              |
-                              v
-                       +-------------------+
-                       | Docker Objects    |
-                       | (Images, Containers,|
-                       | Networks, Volumes)  |
-                       +-------------------+
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-3. Basic Docker Commands
+Basic Docker Commands
 This section outlines fundamental Docker commands crucial for managing images and containers effectively.
 
 1] docker --version: Displays the installed Docker client and engine version.
