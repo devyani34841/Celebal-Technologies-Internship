@@ -50,7 +50,7 @@ Use Nginx as the base image
 FROM nginx:alpine
 
 Copy the custom index.html file to Nginx's default public directory
-COPY index.html /usr/share/nginx/html/index.html
+COPY index.html /usr/share/nginx/html/index.html 
 
 Expose port 80 as Nginx listens on this port by default
 EXPOSE 80
