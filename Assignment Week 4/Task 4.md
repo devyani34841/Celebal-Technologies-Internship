@@ -1,5 +1,7 @@
 Task4: Create a docker image from multiple methods likes Dockerfile, running containers.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
 Method 1: Building an Image from a Dockerfile
+
 This method provides a structured and reproducible way to build images.
 
 Preparation of Application Files:
@@ -24,19 +26,20 @@ index.html:
     <p>This page is served by Nginx inside a custom Docker image.</p>
 </body>
 </html>
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Dockerfile:
 
-# Use Nginx as the base image
+Use Nginx as the base image
 FROM nginx:alpine
 
-# Copy the custom index.html file to Nginx's default public directory
+Copy the custom index.html file to Nginx's default public directory
 COPY index.html /usr/share/nginx/html/index.html
 
-# Expose port 80 as Nginx listens on this port by default
+Expose port 80 as Nginx listens on this port by default
 EXPOSE 80
 
-# Command to run Nginx (default for nginx:alpine)
+Command to run Nginx (default for nginx:alpine)
 CMD ["nginx", "-g", "daemon off;"]
 
 Navigation to Application Directory:
@@ -60,7 +63,8 @@ A container was launched from the custom-nginx-web:1.0 image, mapping host port 
 docker run -d -p 8080:80 --name my-custom-nginx custom-nginx-web:1.0
 
 Verification was performed by accessing http://localhost:8080 in a web browser.
-===================================================================================================================================================================================================================
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
 Method 2: Creating an Image from a Running Container (docker commit)
 This method captures the current state of a running container as a new image.
 
@@ -72,7 +76,7 @@ docker run -it --name adhoc-ubuntu ubuntu:latest bash
 Perform Modifications Inside the Container:
 Once inside the container's bash shell, a simple modification was made, for instance, installing a package or creating a file.
 
-# Inside the container
+Inside the container
 apt-get update
 apt-get install -y cowsay
 echo "Hello from Ad-hoc Image!" | cowsay > /opt/message.txt
@@ -96,7 +100,7 @@ docker run -it adhoc-ubuntu-cowsay:1.0 bash
 
 Once inside, the created file was checked:
 
-# Inside the new container
+ Inside the new container
 cat /opt/message.txt
 cowsay "Check if cowsay works"
 exit
