@@ -15,7 +15,7 @@ The list of Docker networks was inspected to confirm the new network's presence.
 
 docker network ls
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 Run Containers on the Custom Network
 Two containers will be launched and connected to my-custom-app-net. A simple Nginx web server and a busybox container will be used to demonstrate communication.
