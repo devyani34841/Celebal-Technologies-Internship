@@ -33,12 +33,14 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Dockerfile (Multi-Stage Build):
 This Dockerfile uses two stages: builder for installing dependencies and production for the final slim image.
 
-# Stage 1: Builder
-# Uses a Node.js image with build tools
+ Stage 1: Builder
+Uses a Node.js image with build tools
 FROM node:18-alpine AS builder
 
 WORKDIR /app
@@ -47,19 +49,20 @@ COPY package*.json ./
 
 RUN npm install --production
 
-# Stage 2: Production
-# Uses a much smaller Node.js runtime image
+Stage 2: Production
+Uses a much smaller Node.js runtime image
 FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy only the necessary files from the builder stage
+Copy only the necessary files from the builder stage
 COPY --from=builder /app/node_modules ./node_modules
 COPY server.js .
 
 EXPOSE 3000
 
 CMD ["npm", "start"]
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Build Process Steps
 Application Directory Navigation:
