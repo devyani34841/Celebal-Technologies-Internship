@@ -7,6 +7,7 @@ Containerization is a lightweight form of operating-system-level virtualization.
 including code, runtime, libraries, system tools, and configuration files—into a self-contained, isolated unit known as a container. This container is 
 engineered to ensure consistent and reliable execution across diverse computing environments, from a developer's workstation to on-premises servers, 
 virtual machines, or cloud platforms.
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
  Benefits of Containerization
 Containerization is a cornerstone of modern DevOps, primarily addressing the "it works on my machine" problem by guaranteeing environmental consistency. 
@@ -21,6 +22,7 @@ Scalability: Containers can be rapidly scaled up or down to meet fluctuating dem
 like Kubernetes.
 Faster Deployment: The standardized and isolated nature of containers streamlines Continuous Integration/Continuous Delivery (CI/CD) pipelines, 
 facilitating quicker and more reliable software deployments.
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 2. Docker Fundamentals
 Docker is the leading open-source platform designed to facilitate the development, shipment, and execution of applications within containers. It provides a 
