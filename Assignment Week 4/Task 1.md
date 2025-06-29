@@ -1,6 +1,6 @@
 
 Task1:Introduction to containerization and Docker fundamentals, Basic Commands
-******************************************************************************************************************************************************************
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Introduction to Containerization
 What is Containerization?
 Containerization is a lightweight form of operating-system-level virtualization. It involves packaging an application and all its necessary components—
