@@ -16,15 +16,17 @@ Portability: Containers encapsulate all dependencies, enabling applications to b
 
 Consistency: Ensures applications behave identically across development, testing, staging, and production environments, minimizing discrepancies.
 
-Isolation: Each container operates in an isolated environment, preventing conflicts between applications or their dependencies. The failure of one container 
-does not impact others.
+Isolation: Each container operates in an isolated environment, preventing conflicts between applications or their dependencies. The failure of 
+one container does not impact others.
 
-Efficiency: Containers share the host operating system's kernel, making them significantly lighter and faster to provision and start compared to traditional 
-Virtual Machines (VMs). This leads to optimized resource utilization.
+Efficiency: Containers share the host operating system's kernel, making them significantly lighter and faster to provision and start compared
+to traditional Virtual Machines (VMs). This leads to optimized resource utilization.
 
-Scalability: Containers can be rapidly scaled up or down to meet fluctuating demand, particularly when managed by container orchestration platforms like Kubernetes.
+Scalability: Containers can be rapidly scaled up or down to meet fluctuating demand, particularly when managed by container orchestration platforms 
+like Kubernetes.
 
-Faster Deployment: The standardized and isolated nature of containers streamlines Continuous Integration/Continuous Delivery (CI/CD) pipelines, facilitating quicker and more reliable software deployments.
+Faster Deployment: The standardized and isolated nature of containers streamlines Continuous Integration/Continuous Delivery (CI/CD) pipelines, 
+facilitating quicker and more reliable software deployments.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 2. Docker Fundamentals
 Docker is the leading open-source platform designed to facilitate the development, shipment, and execution of applications within containers. It provides a 
@@ -50,8 +52,8 @@ Docker Client (docker CLI): The command-line interface (CLI) that users interact
 (e.g., building images, running containers).
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Docker Architecture
-Docker operates on a client-server architecture. The Docker client communicates with the Docker daemon, which is responsible for executing the commands and managing
-all Docker objects.
+Docker operates on a client-server architecture. The Docker client communicates with the Docker daemon, which is responsible for executing the commands and
+managing all Docker objects.
 
 +------------------+       +-------------------+       +--------------------+
 | Docker Client    | <---> | Docker Daemon     | <---> | Docker Registries  |
