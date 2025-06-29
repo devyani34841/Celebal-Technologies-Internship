@@ -27,23 +27,31 @@ Scalability: Containers can be rapidly scaled up or down to meet fluctuating dem
 Faster Deployment: The standardized and isolated nature of containers streamlines Continuous Integration/Continuous Delivery (CI/CD) pipelines, facilitating quicker and more reliable software deployments.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 2. Docker Fundamentals
-Docker is the leading open-source platform designed to facilitate the development, shipment, and execution of applications within containers. It provides a comprehensive suite of tools for managing the entire container lifecycle.
+Docker is the leading open-source platform designed to facilitate the development, shipment, and execution of applications within containers. It provides a 
+comprehensive suite of tools for managing the entire container lifecycle.
 
 Key Docker Concepts:
-Dockerfile: A plain text file containing a sequence of instructions (commands) for building a Docker image. It acts as a reproducible script for defining and creating container environments.
+Dockerfile: A plain text file containing a sequence of instructions (commands) for building a Docker image. It acts as a reproducible script for defining and 
+creating container environments.
 
-Docker Image: A read-only, immutable template that contains a complete, executable package of software. This includes the application code, a runtime, system libraries, environment variables, and configuration files required for the application to run. Images are built from Dockerfiles.
+Docker Image: A read-only, immutable template that contains a complete, executable package of software. This includes the application code, a runtime, system 
+libraries, environment variables, and configuration files required for the application to run. Images are built from Dockerfiles.
 
-Docker Container: A runnable instance of a Docker image. When an image is executed, it becomes a container, providing an isolated, portable environment where the application actively runs. Containers can be started, stopped, paused, and removed as needed.
+Docker Container: A runnable instance of a Docker image. When an image is executed, it becomes a container, providing an isolated, portable environment where 
+the application actively runs. Containers can be started, stopped, paused, and removed as needed.
 
-Docker Registry (e.g., Docker Hub): A centralized repository service where Docker images can be stored, managed, and shared publicly or privately. Docker Hub is the default public registry, hosting numerous official and community-contributed images.
+Docker Registry (e.g., Docker Hub): A centralized repository service where Docker images can be stored, managed, and shared publicly or privately. Docker Hub is 
+the default public registry, hosting numerous official and community-contributed images.
 
-Docker Daemon (dockerd): A persistent background process that runs on the host system. It listens for Docker API requests from the client and manages all Docker objects, such as images, containers, networks, and volumes.
+Docker Daemon (dockerd): A persistent background process that runs on the host system. It listens for Docker API requests from the client and manages all Docker
+objects, such as images, containers, networks, and volumes.
 
-Docker Client (docker CLI): The command-line interface (CLI) that users interact with to send commands to the Docker Daemon, initiating container operations (e.g., building images, running containers).
+Docker Client (docker CLI): The command-line interface (CLI) that users interact with to send commands to the Docker Daemon, initiating container operations 
+(e.g., building images, running containers).
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Docker Architecture
-Docker operates on a client-server architecture. The Docker client communicates with the Docker daemon, which is responsible for executing the commands and managing all Docker objects.
+Docker operates on a client-server architecture. The Docker client communicates with the Docker daemon, which is responsible for executing the commands and managing
+all Docker objects.
 
 +------------------+       +-------------------+       +--------------------+
 | Docker Client    | <---> | Docker Daemon     | <---> | Docker Registries  |
@@ -71,7 +79,8 @@ Example: docker pull ubuntu:22.04
 
 4] docker images: Lists all Docker images stored locally on your system.
 
-5] docker rmi <image_id_or_name>[:<tag>]: Removes one or more Docker images from local storage. The -f or --force option can be used to override warnings about in-use images.
+5] docker rmi <image_id_or_name>[:<tag>]: Removes one or more Docker images from local storage. The -f or --force option can be used to override warnings about 
+in-use images.
 
 Example: docker rmi my-app-image:1.0
 
@@ -119,7 +128,8 @@ Example: docker logs -f my-webserver
 
 Example: docker inspect my-webserver
 
-19]docker build -t <image_name>[:<tag>] <path_to_dockerfile>: Builds a new Docker image from a Dockerfile. The . typically refers to the current directory containing the Dockerfile.
+19]docker build -t <image_name>[:<tag>] <path_to_dockerfile>: Builds a new Docker image from a Dockerfile. The . typically refers to the current directory 
+containing the Dockerfile.
 
 Example: docker build -t my-python-app:v1.0 .
 *******************************************************************************************************************************************************************
