@@ -33,6 +33,7 @@ index.html:
     
 </head>
 
+
 <body>
     
     <h1>Hello from a Dockerized Web Server!</h1>
@@ -42,7 +43,8 @@ index.html:
 </body>
 
 </html>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Dockerfile:
 
@@ -82,34 +84,44 @@ Verification was performed by accessing http://localhost:8080 in a web browser.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 Method 2: Creating an Image from a Running Container (docker commit)
+
 This method captures the current state of a running container as a new image.
 
 Launch a Base Container:
+
 A base Ubuntu container was launched in interactive mode to allow modifications.
 
 docker run -it --name adhoc-ubuntu ubuntu:latest bash
 
 Perform Modifications Inside the Container:
+
 Once inside the container's bash shell, a simple modification was made, for instance, installing a package or creating a file.
 
 Inside the container
 apt-get update
+
 apt-get install -y cowsay
+
 echo "Hello from Ad-hoc Image!" | cowsay > /opt/message.txt
+
 exit # Exit the container's shell
 
 Commit the Container's State to a New Image:
-From the host machine's terminal (after exiting the container's shell), the docker commit command was used. The container name (adhoc-ubuntu) was specified, along with the desired name and tag for the new 
-image.
+
+From the host machine's terminal (after exiting the container's shell), the docker commit command was used. The container name (adhoc-ubuntu) was specified,
+
+along with the desired name and tag for the new image.
 
 docker commit adhoc-ubuntu adhoc-ubuntu-cowsay:1.0
 
 Verify the New Image:
+
 Local Docker images were listed to confirm the creation of the adhoc-ubuntu-cowsay:1.0 image.
 
 docker images
 
 Run a Container from the Committed Image:
+
 A new container was launched from the adhoc-ubuntu-cowsay:1.0 image to verify the changes.
 
 docker run -it adhoc-ubuntu-cowsay:1.0 bash
@@ -117,6 +129,9 @@ docker run -it adhoc-ubuntu-cowsay:1.0 bash
 Once inside, the created file was checked:
 
  Inside the new container
+ 
 cat /opt/message.txt
+
 cowsay "Check if cowsay works"
+
 exit
