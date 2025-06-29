@@ -1,5 +1,5 @@
 Task 8:Docker Compose for multi-container applications, Docker security best practices
-======================================================================================================================================================================================================================
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 Purpose of Task:
 The objective of this task was to gain practical experience in orchestrating multi-container Docker applications using Docker Compose and to understand fundamental security best practices for building and 
 running Docker containers.This task aims to demonstrate simplified local development environment setup for interconnected services and to highlight crucial steps for securing containerized applications against 
@@ -122,6 +122,7 @@ networks:
 
 volumes:
   redis-data: # Define the named volume for Redis persistence
+  
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Docker Compose Operations
 Navigate to Project Directory:
@@ -143,8 +144,8 @@ View Service Logs:
 Logs for a specific service (e.g., web) or all services were viewed to monitor their startup and operation.
 
 docker compose logs web
-# Or for all services:
-# docker compose logs
+ Or for all services:
+ docker compose logs
 
 Access the Application:
 A web browser was used to navigate to http://localhost:8000. The message indicating the number of hits from the Redis cache was displayed, confirming inter-service communication.
@@ -171,23 +172,23 @@ By default, Docker containers run as the root user. To enhance security, a non-r
 
 Modified web/Dockerfile snippet:
 
-# ... (Stage 1: Builder remains the same) ...
+ ... (Stage 1: Builder remains the same) ...
 
-# Stage 2: Production
+Stage 2: Production
 FROM node:18-alpine
 WORKDIR /app
 
-# Create a non-root user and group
+ Create a non-root user and group
 RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
 
-# Copy only the necessary files from the builder stage
+Copy only the necessary files from the builder stage
 COPY --from=builder /app/node_modules ./node_modules
 COPY server.js .
 
-# Change ownership of the /app directory to the new non-root user
+Change ownership of the /app directory to the new non-root user
 RUN chown -R appuser:appgroup /app
 
-# Switch to the non-root user
+Switch to the non-root user
 USER appuser
 
 EXPOSE 3000
@@ -198,6 +199,7 @@ addgroup and adduser: Commands to create a system group and user.
 chown: Changes ownership of the application directory.
 
 USER: Instruction to switch the user for subsequent Dockerfile commands and runtime.
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  Using .dockerignore
 A .dockerignore file was created in the root of the my_compose_app/web directory (same level as the Dockerfile). This prevents unnecessary files (like node_modules from the host, .git directories, IDE files) 
@@ -215,4 +217,3 @@ Dockerfile
 Minimize Exposed Ports
 
 In the docker-compose.yml, only the necessary application port (3000 for the web app, mapped to 8000 on the host) was exposed. Internal communication between web and redis-server happened over the app-network without exposing Redis's port to the host machine.
-===================================================================================================================================================================================================================
