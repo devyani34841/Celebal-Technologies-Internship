@@ -1,4 +1,6 @@
 Task 6: Create a Custom Docker Bridge Network
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Purpose of Task:
 The objective of this task was to understand and implement Docker's custom bridge networking, which is essential for enabling isolated and name-resolvable communication between multiple containers. This task 
 aims to demonstrate how to create a user-defined network, connect containers to it, and verify inter-container communication using service names instead of IP addresses.
@@ -13,7 +15,7 @@ The list of Docker networks was inspected to confirm the new network's presence.
 
 docker network ls
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Run Containers on the Custom Network
 Two containers will be launched and connected to my-custom-app-net. A simple Nginx web server and a busybox container will be used to demonstrate communication.
@@ -30,7 +32,7 @@ docker run -it --name network-tester --network my-custom-app-net busybox sh
 
 This command will place the user directly into the busybox container's shell.
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Verify Inter-Container Communication
 From within the network-tester (busybox) container's shell, connectivity to web-server was verified using its container name.
@@ -57,7 +59,8 @@ After testing, the busybox container's shell was exited.
 Inside the network-tester container
 exit
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Inspect the Network and Clean Up
 Inspect Custom Network:
 Detailed information about the custom network, including attached containers and their IP addresses, was inspected.
