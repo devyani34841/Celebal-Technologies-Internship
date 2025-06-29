@@ -75,14 +75,14 @@ web/package.json:
 
 web/Dockerfile:
 
-# Multi-stage build for a smaller final image
-# Stage 1: Builder
+Multi-stage build for a smaller final image
+Stage 1: Builder
 FROM node:18-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --production=false # Install dev dependencies during build, but not for final image
 
-# Stage 2: Production
+Stage 2: Production
 FROM node:18-alpine
 WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules
